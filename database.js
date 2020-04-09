@@ -23,7 +23,7 @@ function createVideoGame(data) {
 }
 
 function updateVideoGame(id, data) {
-	const index = videogames.findIndex(vg => vg.id === vg);
+	const index = videogames.findIndex(vg => vg.id === id);
 	videogames[index] = {
 		...videogames[index],
 		...data,
