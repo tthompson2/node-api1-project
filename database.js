@@ -33,7 +33,7 @@ function updateVideoGame(id, data) {
 }
 
 function deleteVideoGame(id) {
-	users = users.filter(u => u.id != id)
+	videogames = videogames.filter(u => u.id != id)
 }
 
 module.exports = {
