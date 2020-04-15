@@ -49,14 +49,14 @@ server.delete("/videogames/:id", (req, res) => {
 
 server.post("/videogames/", (req, res) => {
 
-    if(!req.body.name) {
+    if(!req.body.game) {
         return res.status(400).json({
             message: "Need a video game name", 
         })
     }
 
     const newGame = functions.createVideoGame({
-        name: req.body.game,
+        game: req.body.game,
     })
     
        res.status(201).json(newGame);
@@ -66,13 +66,9 @@ server.post("/videogames/", (req, res) => {
 server.put("/videogames/:id", (req, res) => {
 
     const videoGameID = req.params.id;
-    const videoGameBody = req.body.game;
+    const videoGameBody = req.body;
 
-    res.status(400).json({
-        message: req.body.game
-    })
-
-    // console.log(JSON.stringify(req));
+    
 
     functions.updateVideoGame(videoGameID, videoGameBody);
     res.status(400).send(functions.getVideoGames());
